@@ -1,5 +1,6 @@
 package com.example.convertxmltokotlinobject.retrofit
 
+import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 
 object RetrofitInstance {
@@ -9,6 +10,8 @@ object RetrofitInstance {
         // No Use ConverterFactory. So it returns XML as String.
         Retrofit.Builder()
             .baseUrl(BASE_URL)
+            .addConverterFactory(CustomConverterFactory())
+            .client(OkHttpClient.Builder().build())
             .build()
     }
 

@@ -3,13 +3,15 @@ package com.example.convertxmltokotlinobject
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.example.convertxmltokotlinobject.ui.theme.ConvertXMLtoKotlinObjectTheme
 
 class MainActivity : ComponentActivity() {
@@ -28,8 +30,16 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    if(viewModel.xml.value != "") {
-                        Text(text = viewModel.xml.value)
+                    if(viewModel.xml.value.books.isNotEmpty()) {
+                        Column {
+                            viewModel.xml.value.books.forEach {
+                                Text(text = it.title)
+                                Text(text = it.author)
+                                Text(text = it.isbn)
+
+                                Spacer(modifier = Modifier.height(4.dp))
+                            }
+                        }
                     }
                 }
             }

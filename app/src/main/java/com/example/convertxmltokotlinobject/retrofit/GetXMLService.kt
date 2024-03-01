@@ -4,5 +4,5 @@ import retrofit2.http.GET
 
 interface GetXMLService {
     @GET("opensearch?title=androidアプリ開発")
-    suspend fun getXML(): String
+    suspend fun getXML(): Books
 }
