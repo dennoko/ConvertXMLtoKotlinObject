@@ -33,7 +33,6 @@ class XmlResponseConverter: Converter<ResponseBody, Books> {
 
         val xsi = "http://www.w3.org/2001/XMLSchema-instance"
         val dc = "http://purl.org/dc/elements/1.1/"
-        val dcndl = "http://ndl.go.jp/dcndl/terms/"
 
         while (eventType != XmlPullParser.END_DOCUMENT) {
             when (eventType) {
